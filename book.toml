@@ -1,0 +1,6 @@
+[book]
+authors = ["redsolver"]
+language = "en"
+multilingual = false
+src = "src"
+title = "S5 Docs"
