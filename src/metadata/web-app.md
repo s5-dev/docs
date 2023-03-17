@@ -8,4 +8,6 @@ Web App Metadata: <https://cid.one/#blepzzclchbhwull3is56zvubovg7j3cfmatxx5gyspf
 
 ## Fields
 
-Full commented JSON Schema definition will be added soon, including TypeScript type definitions.
+Full JSON Schema: <https://schema.sfive.net/web-app-metadata.json>
+
+Web-based viewer: <https://json-schema.app/view/%23?url=https%3A%2F%2Fschema.sfive.net%2Fweb-app-metadata.json>

@@ -12,4 +12,6 @@ Media Metadata: <https://cid.one/#z5TTvXtbkQk9PTUN8r5oNSz5Trmf1NjJwkVoNvfawGKDtP
 
 ## Fields
 
-Full commented JSON Schema definition will be added soon, including TypeScript type definitions.
+Full JSON Schema: <https://schema.sfive.net/media-metadata.json>
+
+Web-based viewer: <https://json-schema.app/view/%23?url=https%3A%2F%2Fschema.sfive.net%2Fmedia-metadata.json>
