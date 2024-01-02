@@ -2,6 +2,8 @@
 
 [The Sia network](https://sia.tech/) provides decentralized and redundant data storage.
 
+**This page shows how to use Sia with the native integration, it most cases you should follow this guide for the S3-based integration instead:** </guide/setup-with-sia.html>
+
 You will need a fully configured local instance of **renterd**: https://github.com/SiaFoundation/renterd
 
 Warning: Both renterd and this integration are still experimental. Please report any bugs you encounter.

@@ -4,15 +4,21 @@ You can edit the `config.toml` file to configure your S5 node. You can apply cha
 
 This page describes the available sections in the config.
 
-## keypair
+### keypair
 
 The `seed` is generated on first start, you should keep it private. It's used for signing messages on the network.
 
-## store
+### http.api
+
+`domain`: Configure this value to match the domain you are using to access your node. If you for example configured your domain `example.com` to be reverse-proxied to your S5 Node Docker container using Caddy, nginx or others, you should set this to `example.com`
+
+`port`: On which port the HTTP API should bind to and be available (you should usually keep this the default)
+
+### store
 
 Check out the [Stores documentation](/stores/index.html) for configuring different object stores.
 
-## accounts
+### accounts
 
 You can enable the accounts system by adding this part to your config:
 
@@ -38,20 +44,16 @@ alwaysAllowedScopes = [
 ]
 ```
 
-## cache
+## Advanced
+
+### cache
 
 Configure a custom cache path with `path`, you likely don't need this if you are using Docker.
 
-## database
+### database
 
 Configure a custom database path, you likely don't need this if you are using Docker.
 
-## http.api
-
-`domain`: Configure this value to match the domain you are using to access your node
-
-`port`: On which port the HTTP API should bind
-
-## p2p.peers
+### p2p.peers
 
 List of initial peers used for connecting to the p2p network.

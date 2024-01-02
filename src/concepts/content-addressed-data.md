@@ -36,7 +36,7 @@ To make verified streaming of large files possible, S5 uses the [Bao](https://gi
 As mentioned earlier, BLAKE3 is a merkle tree on the inside - this makes it possible to verify the integrity of small parts of a file without having
 to download and hash the entire file first.
 
-By default, S5 appends some layers of the Bao hash tree to every stored file that is larger than 256 KiB.
+By default, S5 stores some layers of the Bao hash tree next to every stored file that is larger than 256 KiB (same path, but `.obao` extension).
 With the default layers, it's possible to verify chunks with a minimum size of 256 KiB from a file.
 So if you're for example streaming a large video file, your player only needs to download the first 256 KiB of the file before being able to show the first frame.
 The overhead of storing the tree is a bit less than 256 KiB per 1 GiB of stored data.

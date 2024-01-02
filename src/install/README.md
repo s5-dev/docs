@@ -19,7 +19,7 @@ docker run -d \
 -v ./s5/config:/config \
 -v ./s5/db:/db \
 --restart unless-stopped \
-ghcr.io/s5-dev/node:0.10.0
+ghcr.io/s5-dev/node:latest
 ```
 
 This will only bind your node to localhost, so you will need a reverse proxy like [Caddy](caddy.md) to access it from the internet.
@@ -68,7 +68,7 @@ Create a file called `docker-compose.yml` with this content:
 version: '3'
 services:
   s5-node:
-    image: ghcr.io/s5-dev/node:0.10.0
+    image: ghcr.io/s5-dev/node:latest
     volumes:
       - ./path/to/config:/config
     ports:
