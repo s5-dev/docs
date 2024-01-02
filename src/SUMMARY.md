@@ -15,6 +15,8 @@
     - [Local](stores/local.md)
     - [Sia Network](stores/sia.md)
     - [Arweave](stores/arweave.md)
+- [Guides](guide/README.md)
+    - [Setup With Sia](guide/setup-with-sia.md)
 - [Tools](tools/README.md)
     - [cid.one](tools/cid-one.md)
     - [s5.cx](tools/s5-cx.md)
