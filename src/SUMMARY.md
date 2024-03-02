@@ -16,6 +16,7 @@
     - [Sia Network](stores/sia.md)
     - [Arweave](stores/arweave.md)
 - [Guides](guide/README.md)
+    - [Deploy S5 Node with Sia renterd](guide/deploy-renterd.md)
     - [Setup With Sia](guide/setup-with-sia.md)
 - [Tools](tools/README.md)
     - [cid.one](tools/cid-one.md)
