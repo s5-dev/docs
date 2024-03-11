@@ -10,13 +10,13 @@ You can then use it with the Vup Cloud Storage app or just play with the S5 API 
 - Debian VPS (x86 or arm64) with 8+ GB of RAM and 128+ GB of free disk space (16+ GB of RAM are better for performance)
 - Some SC (siacoin) for forming contracts on the network and renting storage
 
-If you're looking for affordable providers with these specs, I found the new Netcup ARM Servers to be a pretty good choice (https://www.netcup.de/vserver/arm-server/)
+If you're looking for affordable providers with these specs, I found the new Netcup ARM Servers to be a pretty good choice (<https://www.netcup.de/vserver/arm-server/>)
 - 7 EUR/month for 8 GB of RAM
 - 12 EUR/month for 16 GB of RAM
 
 ## Install Sia `renterd`
 
-Check out the official Sia docs for detailed instructions with screenshots: https://docs.sia.tech/renting/setting-up-renterd/linux/debian
+Check out the official Sia docs for detailed instructions with screenshots: <https://docs.sia.tech/renting/setting-up-renterd/linux/debian>
 
 Or just connect to your Debian VPS over SSH and copy-paste these commands:
 
@@ -32,21 +32,21 @@ Run `renterd version` to verify it was installed correctly.
 
 ## Configure Sia renterd
 
-Run `sudo renterd config` and follow the instructions. **Please choose a secure password for the renterd admin UI!** You can use `pwgen -s 42 1` to generate one.
+Run `cd /var/lib/renterd`, then `sudo renterd config` and follow the instructions. **Please choose a secure password for the renterd admin UI!** You can use `pwgen -s 42 1` to generate one.
 
 Type **yes** when you're asked if you want to configure **S3 settings**.
 
-Keep the `S3 Address` on the default setting. (You won't need it for this guide, but s3 support is very useful for many other potential use cases for your renterd node)
+Keep the `S3 Address` on the default setting. (You won't need it for this guide, but s3 support is very useful for many other potential use cases for your renterd node). It might also make sense to write down the generated s3 credentials if you want to use them later.
 
 Finally, start renterd using `sudo systemctl start renterd`
 
-Then you can re-connect to your VPS using `ssh -L localhost:9980:localhost:9980 IP_ADDRESS_OR_DOMAIN` to create a secure SSH tunnel to the renterd web UI. After connecting, you can open http://localhost:9980/ in your local web browser and authenticate with the previously set API password.
+Then you can re-connect to your VPS using `ssh -L localhost:9980:localhost:9980 IP_ADDRESS_OR_DOMAIN` to create a secure SSH tunnel to the renterd web UI. After connecting, you can open <http://localhost:9980/> in your local web browser and authenticate with the previously set API password.
 
 In the web UI, follow the step-for-step welcome guide and set everything up.
 
 1. Configure the storage settings
-2. Fund your wallet (https://docs.sia.tech/renting/transferring-siacoins)
-3. Create a new bucket with the name `s5` on http://localhost:9980/files (top right button)
+2. Fund your wallet (<https://docs.sia.tech/renting/transferring-siacoins>)
+3. Create a new bucket with the name `s5` on <http://localhost:9980/files> (top right button)
 4. Wait for the chain to sync
 5. Wait for storage contracts to form
 
@@ -58,11 +58,11 @@ For example if you own the domain `example.com`, you could run the S5 Node on `s
 
 You should then add DNS `A` records pointing to the IP address of your VPS for both of these subdomains. Of course `AAAA` records are nice too if you have IPv6.
 
-Then install Caddy by following these instructions: https://caddyserver.com/docs/install#debian-ubuntu-raspbian
+Then install Caddy by following these instructions: <https://caddyserver.com/docs/install#debian-ubuntu-raspbian>
 
 Then edit the Caddy config with `nano /etc/caddy/Caddyfile` to something like this:
 
-You can generate the `TODO_PASTE_HERE` part by encoding your Sia renterd API password to base64 (input: `:APIPASSWORD`) on https://gchq.github.io/CyberChef/#recipe=To_Base64('A-Za-z0-9%2B/%3D')
+You can generate the `TODO_PASTE_HERE` part by encoding your Sia renterd API password to base64 (input: `:APIPASSWORD`) on <https://gchq.github.io/CyberChef/#recipe=To_Base64('A-Za-z0-9%2B/%3D')>
 
 ```js
 S5_API_DOMAIN {
@@ -99,6 +99,8 @@ mkdir -p /s5/db
 mkdir -p /tmp/s5
 ```
 
+If you're not root, you might need to run `sudo chown -R $USER /tmp/s5 /s5` to set permissions correctly.
+
 Then start a S5 node with these commands: (You might need to create the `/s5/` directories in that command first)
 
 ```sh
@@ -114,7 +116,7 @@ ghcr.io/s5-dev/node:latest
 
 Edit `nano /s5/config/config.toml`
 
-Add these config entries there:
+Add these config entries there (the `APIPASSWORD` is what you used to login to the renterd web UI):
 
 ```toml
 [http.api]
@@ -135,7 +137,7 @@ downloadUrl = "https://DOWNLOAD_PROXY_DOMAIN"
 
 Then run `podman restart s5-node` to restart the S5 Node.
 
-You can visit https://S5_API_DOMAIN/s5/admin/app in your web browser to create and manage accounts manually. The API key for your node can be retrieved by running `journalctl | grep 'ADMIN API KEY'`
+You can visit `https://S5_API_DOMAIN/s5/admin/app` in your web browser to create and manage accounts manually. The API key for your node can be retrieved by running `journalctl | grep 'ADMIN API KEY'`
 
 ## Using your new S5 Node for Vup Storage
 
