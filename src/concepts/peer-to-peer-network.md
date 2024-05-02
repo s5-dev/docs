@@ -14,13 +14,11 @@ After connecting to a new peer, peers send a list of all other peers they know a
 
 ## Supported P2P Protocols
 
-- Custom TCP (authenticated, but not encrypted)
+- WebSocket (`wss://`)
 
 ## Planned P2P Protocols
 
-- QUIC+TLS or nQUIC
-- WebSocket
-- WebTransport
+- iroh QUIC Connections (<https://iroh.computer/docs/layers/connections>)
 
 ## Node/peer IDs
 

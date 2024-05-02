@@ -28,7 +28,7 @@ Cryptographic hash functions are an algorithm that can map files or data of any 
 
 Content-addressing means that instead of addressing data by their location (for example with protocols like HTTP/HTTPS), it's referenced
 by their cryptographic hash. This makes it possible to make sure you actually received the correct data you are looking for without
-trusting anyone except the person who gave you the hash. It also makes all files immutable by default.
+trusting anyone except the person who gave you the hash. Other benefits include highly efficient caching (due to file blobs being immutable by default) and automatic deduplication of data.
 
 ## Verified streaming
 
@@ -74,9 +74,10 @@ So the length of a raw file CID depends on the filesize:
 S5 uses the [multibase](https://github.com/multiformats/multibase) standard for encoding the CID bytes.
 Basically the first character indicates how the bytes are encoded, here's a list of which ones are supported by S5:
 ```
-base32,            b,    rfc4648 case-insensitive - no padding
-base58btc,         z,    base58 bitcoin
-base64url,         u,    rfc4648 no padding
+base16,     f,    Hexadecimal (lowercase)
+base32,     b,    rfc4648 case-insensitive - no padding
+base58btc,  z,    base58 bitcoin
+base64url,  u,    rfc4648 no padding
 ```
 
 By default, `base58btc` with the `z` prefix is used for newly uploaded files because it's short and easy to copy.
