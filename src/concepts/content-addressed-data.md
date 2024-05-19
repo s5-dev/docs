@@ -43,51 +43,7 @@ The overhead of storing the tree is a bit less than 256 KiB per 1 GiB of stored 
 
 ## CIDs (Content identifiers)
 
-Hash values produced by the BLAKE3 hash function have a size of 32 bytes, for example `c4d27f80613c2dfdc4d9d013b43c181576e21cf9c2616295646df00db09fbd95` (hex-encoded).
-
-Instead of using this value directly, S5 prepends two additional bytes to reference raw files:
-
-`0x26 cidTypeRaw`: This CID contains a raw file without any additional metadata
-
-`0x1f mhashBlake3Default`: This CID contains a BLAKE3 hash of the file with the default 256-bit output size
-
-You can find a list of all up-to-date magic bytes here: [lib5:constants.dart](https://github.com/s5-dev/lib5/blob/main/lib/src/constants.dart)
-
-In addition to these two magic bytes, the size of the file (in bytes) is encoded with little-endian encoding and appended to the hash bytes.
-For example a file with `18657` bytes, would be encoded like this:
-
-```javascript
-0x26 0x1f 0xc4d27f80613c2dfdc4d9d013b43c181576e21cf9c2616295646df00db09fbd95 0xe148
-type hash blake3-256-hash                                                    filesize
-```
-
-So the length of a raw file CID depends on the filesize:
-- Files with a size of less than 256 bytes have a 35-byte CID
-- Files with a size of less than 64 KiB bytes have a 36-byte CID
-- Files with a size of less than 16 MiB bytes have a 37-byte CID
-- Files with a size of less than 4 GiB bytes have a 38-byte CID
-- ...
-- Files with a size of less than 16384 PiB have a 42-byte CID
-
-## Encoding the CID bytes to a human-readable form
-
-S5 uses the [multibase](https://github.com/multiformats/multibase) standard for encoding the CID bytes.
-Basically the first character indicates how the bytes are encoded, here's a list of which ones are supported by S5:
-```
-base16,     f,    Hexadecimal (lowercase)
-base32,     b,    rfc4648 case-insensitive - no padding
-base58btc,  z,    base58 bitcoin
-base64url,  u,    rfc4648 no padding
-```
-
-By default, `base58btc` with the `z` prefix is used for newly uploaded files because it's short and easy to copy.
-
-So the CID from the example earlier would be encoded like this:
-```
-base58btc: zHnq5PTzaLbboBEvLzecUQQWSpyzuugykxfmxPv4P3ccDcGwnw
-base32:    beyp4jut7qbqtylp5ytm5ae5uhqmbk5xcdt44eylcsvsg34anwcp33fpbja
-base64url: uJh_E0n-AYTwt_cTZ0BO0PBgVduIc-cJhYpVkbfANsJ-9leFI
-```
+See [/spec/blobs.html](/spec/blobs.md) for up-to-date documentation on how S5 calculates CIDs.
  
 ## Media types
 
