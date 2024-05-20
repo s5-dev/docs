@@ -27,17 +27,17 @@ The second one is `0x82` and indicates that it is a plaintext blob. `0x83` is re
 
 Byte | Meaning
 - | -
-0x5b | S5 Blob CID magic byte
-0x82 | S5 Blob Type Plaintext (Unencrypted, just a simple blob)
+**0x5b** | S**5** **B**lob CID magic byte
+**0x82** | S5 Blob Type Plaintext (Unencrypted, just a simple blob)
 
-> As a nice side effect of picking exactly these two bytes, all S5 Blob CIDs start with with the string "blob" when encoded as base32 (multibase). All S5 CID magic bytes are picked carefully to not collide with any existing magic bytes on the <a href="https://github.com/multiformats/multicodec" target="_blank">https://github.com/multiformats/multicodec</a> table
+> As a nice side effect of picking exactly these two bytes, all S5 Blob CIDs start with the string "blob" when encoded as base32 (multibase). All S5 CID magic bytes are picked carefully to not collide with any existing magic bytes on the <a href="https://github.com/multiformats/multicodec" target="_blank">https://github.com/multiformats/multicodec</a> table
 
 After the two magic bytes, a single byte indicates which cryptographic hash function was used to derive a hash from the blob bytes. All S5 implementations should use `0x1e` (for BLAKE3), but SHA256 is also supported for compatibility reasons. SHA256 should only be used for small blobs imported from other systems, like IPFS or the AT Protocol.
 
 Byte | Meaning
 - | -
-0x1e | multihash blake3
-0x12 | multihash sha2-256
+**0x1e** | multihash blake3
+**0x12** | multihash sha2-256
 
 After the single multihash indicator byte, the 32 hash bytes follow. (S5 Blob CIDs always use the default hash output length, 32 bytes, for both blake3 and sha2-256. If the need for a different output length emerges in the future, a new possible value for the hash byte could be added)
 
@@ -49,13 +49,13 @@ let mut cid_size_bytes = blob_size.to_le_bytes().to_vec();
 if let Some(pos) = cid_size_bytes.iter().rposition(|&x| x != 0) {
     cid_size_bytes.truncate(pos + 1);
 }
-println!("{:?}", cid_size_bytes);
+println!("{:x?}", cid_size_bytes);
 ```
 
 If we put all of this together, this is how the S5 Blob CID of the string `Hello, world!` in hex representation would look like: 
 
 ```hex
-5b 82 12 ede5c0b10f2ec4979c69b52f61e42ff5b413519ce09be0f14d098dcfe5f6f98d 0d
+5b 82 1e ede5c0b10f2ec4979c69b52f61e42ff5b413519ce09be0f14d098dcfe5f6f98d 0d
 PREFIX   BLAKE3 HASH (from b3sum)                                         SIZE
 ```
 
@@ -86,13 +86,13 @@ u,          base64url,          RFC4648 no padding
 For the string `Hello, world!`, these would be the S5 Blob CIDs in different encodings:
 
 ```
-base16:    f5b8212ede5c0b10f2ec4979c69b52f61e42ff5b413519ce09be0f14d098dcfe5f6f98d0d
-base32:    blobbf3pfycyq6lwes6ogtnjpmhsc75nucnizzye34dyu2cmnz7s7n6i
-base58:    z34yzrj3Qqm7uAbDFe9aFjH9VD3GuiCZsRrJ4HS7HqYT3LqW
-base64url: uW4IS7eXAsQ8uxJecabUvYeQv9bQTUZzgm-DxTQmNz-X2-Q
+base16:    f5b821eede5c0b10f2ec4979c69b52f61e42ff5b413519ce09be0f14d098dcfe5f6f98d0d
+base32:    blobb53pfycyq6lwes6ogtnjpmhsc75nucnizzye34dyu2cmnz7s7n6mnbu
+base58:    zhJTU2Mz5tATfj9rc5xorsXiadvYq3idS4CznEfW9Zg9zfksX2
+base64url: uW4Ie7eXAsQ8uxJecabUvYeQv9bQTUZzgm-DxTQmNz-X2-Y0N
 ```
 
-## Calculating the S5 Blob CID of a file using standard command line utils
+## Calculating the S5 Blob CID of any file using standard command line utils
 
 Step 1: Calculate the BLAKE3 hash of your file (might need to install `b3sum`). You could also use `sha256sum` instead (and then put `0x12` as the hash prefix in step 3)
 
@@ -123,7 +123,9 @@ That's it, you can now use that CID to trustlessly stream exactly that file from
 
 ## Calculating a S5 Blob CID in Rust (using only top 100 crates)
 
-```rust,edition2021
+You can run the code with the play button (top right) and edit it if you want!
+
+```rust,edition2021,editable
 use data_encoding::BASE32_NOPAD; // 2.5.0;
 use sha2::{Digest, Sha256}; // 0.10.8
 
