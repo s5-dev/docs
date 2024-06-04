@@ -1,6 +1,6 @@
 # Setup With Sia S3
 
-It is reccomended to use the direct Sia API integration as doccumented in the [full renterd setup guide with S5](deploy-renterd.md). But S5 also supports the S3 endpoints.
+It is recommended to use the direct Sia API integration as documented in the [full renterd setup guide with S5](deploy-renterd.md). But S5 also supports the S3 endpoints.
 
 First, you'll need a fully configured instance of **renterd** (the new Sia renter software) running somewhere. Here's a [great guide](https://blog.sia.tech/sia-innovate-and-integrate-christmas-2023-hackathon-9b7eb8ad5e0e) which shows you how to set one up easily on the Sia testnet.
 

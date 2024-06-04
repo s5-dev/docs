@@ -7,7 +7,6 @@ title = "S5 Network Docs"
 
 [output.html]
 smart-punctuation = true
-mathjax-support = true
 site-url = "/"
 git-repository-url = "https://github.com/s5-dev/docs/"
 edit-url-template = "https://github.com/s5-dev/docs/edit/main/{path}"

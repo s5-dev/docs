@@ -32,7 +32,7 @@ Then build the book:
 mdbook build
 ```
 
-Then the bulid files will be in the `/book` directory.
+Then the build files will be in the `/book` directory.
 
 ## Acknowledgement
 
