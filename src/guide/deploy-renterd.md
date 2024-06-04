@@ -11,6 +11,7 @@ You can then use it with the Vup Cloud Storage app or just play with the S5 API 
 - Some SC (siacoin) for forming contracts on the network and renting storage
 
 If you're looking for affordable providers with these specs, I found the new Netcup ARM Servers to be a pretty good choice (<https://www.netcup.de/vserver/arm-server/>)
+
 - 7 EUR/month for 8 GB of RAM
 - 12 EUR/month for 16 GB of RAM
 
@@ -91,7 +92,7 @@ Then restart Caddy with `systemctl restart caddy`
 
 First, install Podman using this command: `sudo apt-get -y install podman`
 
-Create some needed directories: 
+Create some needed directories:
 
 ```sh
 mkdir -p /s5/config
@@ -151,4 +152,4 @@ enabled = true
 
 Then run `podman restart s5-node` to restart the S5 Node.
 
-Now you can use the "Register on S5 Node" button in the Vup "Storage Service" settings, enter the domain of your node and the newly generated invite code and you should be good to go! You'll likely want to use more than 10 GB of storage, so just use the Admin Web UI to set a higher tier for your newly created account.
+Now you can use the "Register on S5 Node" button in the Vup "Storage Service" settings, enter the domain of your node and the newly generated invite code, and you should be good to go! You'll likely want to use more than 10 GB of storage, so just use the Admin Web UI to set a higher tier for your newly created account.
