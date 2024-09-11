@@ -1,6 +1,6 @@
 # Registry
 
-> This specification is still a work-in-progress draft. If you have any suggestions on how it could be improved, please create an issue here: https://github.com/s5-dev/docs/issues
+> This specification is still a work-in-progress draft. If you spot any issues or have suggestions on how it could be improved, please create an issue here: https://github.com/s5-dev/docs/issues
 
 The registry is a distributed key-value store on the S5 Network and makes mutable data structures possible by being a pointer to immutable blobs. At the moment, all keys are **ed25519 public keys** and each entry must be signed by the corresponding private key. All keys on the network are prefixed with the `0xed` byte (indicating ed25519) to make future additions to the set of supported algorithms easy (especially quantum-safe ones). Each entry also has a 64-bit unsigned integer **revision number**. Nodes should drop any (valid) registry entries they receive if their revision number is lower than that of an entry for the same public key they already know about.
 
@@ -23,6 +23,12 @@ class SignedRegistryEntry {
 
   /// signature of this signed registry entry
   final Uint8List signature;
+```
+
+## Relevant Constants
+
+```dart
+const recordTypeRegistryEntry = 0x07;
 ```
 
 ## Serializing a registry entry (for wire transport)
