@@ -8,6 +8,9 @@ Registry entries should be stored for as long as possible by nodes receiving the
 
 > The code examples below are written in the Dart programming language. The final spec will use Rust ones.
 
+The registry uses little-endian byte encoding for the `u64` revision.
+
+
 ## Registry Entry structure
 
 ```dart
