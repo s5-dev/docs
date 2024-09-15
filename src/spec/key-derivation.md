@@ -12,6 +12,10 @@ fn derive_hash(base: &[u8; 32], tweak: &[u8; 32]) -> [u8; 32] {
     *hasher.finalize().as_bytes()
 }
 
+fn derive_hash_string(base: &[u8; 32], tweak: &[u8]) -> [u8; 32] {
+    derive_hash(base, blake3::hash(tweak).as_bytes())
+}
+
 fn derive_hash_int(base: &[u8; 32], tweak: u16) -> [u8; 32] {
     let mut tweak_bytes = [0u8; 32];
     tweak_bytes[..2].copy_from_slice(&tweak.to_le_bytes());
