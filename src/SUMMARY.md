@@ -10,7 +10,15 @@
 
 - [Specification](spec/README.md)
     - [Blobs](spec/blobs.md)
-    - [File System (FS5)]()
+    - [Registry](spec/registry.md)
+    - [Streams](spec/streams.md)
+    - [Accounts on Storage Nodes](spec/accounts.md)
+    - [Upload](spec/upload.md)
+    - [API Interface](spec/api-interface.md)
+    - [Identity](spec/identity.md)
+    - [Key Derivation](spec/key-derivation.md)
+    - [Encryption](spec/encryption.md)
+    - [File System (FS5)](spec/file-system.md)
 
 ---
 
