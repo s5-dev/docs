@@ -1,6 +1,6 @@
 # Setup With Sia
 
-Please follow this guide instead: <deploy-renterd.md>
+Please follow this guide instead: [deploy-renterd.html](deploy-renterd.html)
 
 Sia is a decentralized, affordable and secure cloud storage platform. You can use it as a storage backend for your S5 Node.
 

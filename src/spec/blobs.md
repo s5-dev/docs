@@ -1,6 +1,6 @@
 # Blobs
 
-As explained in [/concepts/content-addressed-data.html](/concepts/content-addressed-data.md), S5 uses the concept of content-addressing for all data and files, so any blob of bytes.
+As explained in [/concepts/content-addressed-data.md](/concepts/content-addressed-data.md), S5 uses the concept of content-addressing for all data and files, so any blob of bytes.
 
 IPFS introduced the concept of Content Identifiers (CIDs), to have a standardized and future-proof way to refer to content-addressed data. Unfortunately, ["IPFS CIDs are not file hashes"](https://docs.ipfs.tech/concepts/content-addressing/#cids-are-not-file-hashes) because they split files up in a lot of small chunks, to make verified streaming of file slices possible without needing to download the entire file first. As a result, these files will never match their "true" hash, like when running `sha256sum`.
 

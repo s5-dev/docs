@@ -2,7 +2,7 @@
 
 > This specification is still a work-in-progress draft. If you spot any issues or have suggestions on how it could be improved, please create an issue here: https://github.com/s5-dev/docs/issues
 
-S5 supports different types of encryption, used in the <file-system.md> and other parts of the spec.
+S5 supports different types of encryption, used in the [file-system.md](file-system.md) and other parts of the spec.
 
 It ensures secure end-to-end-encryption when users need it, like in their private file system or when sending messages over a stream.
 
@@ -17,7 +17,7 @@ S5 implementations must support both `AES-GCM` and `XChaCha20-Poly1305` for immu
 
 ## Immutable Encrypted Blobs
 
-Immutable Encrypted Blobs are used for file versions in the S5 <file-system.md>.
+Immutable Encrypted Blobs are used for file versions in the S5 [file-system.md](file-system.md).
 
 They have some parameters:
 - **cipher**: The cipher used by the blob
@@ -42,7 +42,7 @@ XChaCha20-Poly1305 is the default cipher for mutable encrypted blobs.
 
 ### Directory CIDs with an encryption key
 
-If you share a directory with someone using a CID, it usually consists of the bytes `5d ed 32_BYTE_PUBKEY`, which indicates that it points to a S5 Directory metadata file (`0x5d`, see <file-system.md>), that it's mutable by using an ed25519 pubkey (`0xed`) that points to a registry entry.
+If you share a directory with someone using a CID, it usually consists of the bytes `5d ed 32_BYTE_PUBKEY`, which indicates that it points to a S5 Directory metadata file (`0x5d`, see [file-system.md](file-system.md)), that it's mutable by using an ed25519 pubkey (`0xed`) that points to a registry entry.
 
 But if the directory is encrypted, you also need a key. In that case, a CID is encoded like this:
 

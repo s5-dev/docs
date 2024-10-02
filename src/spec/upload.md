@@ -8,7 +8,7 @@ Small files can be uploaded with a single HTTP POST request, using the default f
 
 `curl -X POST "https://S5_NODE_URL/s5/upload" -F "file=@example.txt"`
 
-Please note that non-localhost (or local network) S5 Nodes reachable on the Internet usually require authentication for uploading files, see [accounts.md](accounts.html) for details.
+Please note that non-localhost (or local network) S5 Nodes reachable on the Internet usually require authentication for uploading files, see [accounts.md](accounts.md) for details.
 
 `curl -X POST "https://S5_NODE_URL/s5/upload?auth_token=AUTH_TOKEN_HERE" -F "file=@example.txt"`
 

@@ -20,7 +20,7 @@ See <https://github.com/s5-dev/S5/blob/main/lib/service/accounts.dart> for the c
 
 ### `/s5/account/register`
 
-This endpoint (first GET for the challenge, then POST with signed payload to register) can be used to register a new account using a specific ed25519 public key. How that key is generated is up to the implementation and use case, but for apps using the S5 Identity system it's described in [identity.md](identity.html).
+This endpoint (first GET for the challenge, then POST with signed payload to register) can be used to register a new account using a specific ed25519 public key. How that key is generated is up to the implementation and use case, but for apps using the S5 Identity system it's described in [identity.md](identity.md).
 
 ### `/s5/account/login`
 

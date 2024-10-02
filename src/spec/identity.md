@@ -24,4 +24,4 @@ The current implementation of seed generation and validation is available at <ht
 
 After the root identity secret is available (from the seed phrase), it's used to derive a number of keys. S5 applications are expected to only (securely) store the derived keys they actually need for their features (like the file system or accounts) and drop all other keys, including the root identity secret.
 
-The derivation algorithm is described in <key-derivation.md> and the derivation paths for different use cases is implemented in <https://github.com/s5-dev/lib5/blob/main/lib/src/identity/identity.dart>. The paths will be added to this spec after the final decision on which ones are actually needed (and which ones can be removed due to no active use) is made.
+The derivation algorithm is described in (key-derivation.md)[key-derivation.md] and the derivation paths for different use cases is implemented in <https://github.com/s5-dev/lib5/blob/main/lib/src/identity/identity.dart>. The paths will be added to this spec after the final decision on which ones are actually needed (and which ones can be removed due to no active use) is made.
